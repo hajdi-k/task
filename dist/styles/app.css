@@ -22,9 +22,29 @@
   font-weight: 700;
   src: local("Arial MT"), url(https://fonts.cdnfonts.com/s/29107/ARIALBOLDITALICMT.woff) format("woff");
 }
+.py-1 {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+.py-2 {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+.py-3 {
+  padding-top: 1rem !important;
+  padding-bottom: 1rem !important;
+}
+
 .px-2 {
   padding-left: 0.5rem !important;
   padding-right: 0.5rem !important;
+}
+
+.px-3 {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
 }
 
 .p-2 {
@@ -59,6 +79,7 @@
   padding: 0;
   margin: 0;
   font-family: "Arial MT", sans-serif;
+  color: red;
 }
 .task-body * {
   box-sizing: border-box;
@@ -67,10 +88,13 @@
 }
 .task-body .container {
   max-width: 1200px;
+  margin: auto;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
 }
 
 .task-body .main-nav {
-  background-color: #259bc1;
+  background-color: #259bc3;
 }
 .task-body .main-nav .main-nav-list {
   margin: 0 auto;
@@ -158,13 +182,13 @@
   display: inline-block;
 }
 .task-body .main-nav .main-nav-list .filter-menu .filter-items .item:hover a {
-  color: white;
+  color: #ffffff;
 }
 .task-body .main-nav .main-nav-list .filter-menu .filter-items .item.active {
   background-color: #51afcd;
 }
 .task-body .main-nav .main-nav-list .filter-menu .filter-items .item.active a {
-  color: white;
+  color: #ffffff;
 }
 @media (max-width: 768px) {
   .task-body .main-nav .main-nav-list {
@@ -189,6 +213,44 @@
   }
 }
 
-p {
-  color: blue;
+.task-input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0;
+  display: inline-block;
+  border: 1px solid #b0b0b0;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
+  color: red;
+}
+.task-input:focus, .task-input:active {
+  outline-color: red;
+  border-color: red;
+}
+
+.board-actions {
+  background-color: #f8f8f8;
+}
+.board-actions .actions-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.board-actions .actions-wrapper .query {
+  margin-right: auto;
+}
+.board-actions .actions-wrapper .query input[type=search] {
+  max-width: 500px;
+  width: 100%;
+}
+.board-actions .actions-wrapper .add-account {
+  background-color: #8cc63e;
+  border: none;
+  color: #ffffff;
+  border-radius: 0.5rem;
+  font-size: 16px;
+}
+.board-actions .actions-wrapper .add-account:focus, .board-actions .actions-wrapper .add-account:active {
+  outline-color: red;
+  border-color: red;
 }

@@ -26,11 +26,11 @@
 				</a>
 			</li>
 			<li class="filter-toggle">
-				<div class="box menu-toggle" onclick="taskSpace.menuToggle()">
+				<a href="#" class="box menu-toggle" onclick="taskSpace.menuToggle()">
 					<div class="bar1"></div>
 					<div class="bar2"></div>
 					<div class="bar3"></div>
-				</div>
+				</a>
 			</li>
 			<li class="filter-menu my-2">
 				<a class="filter-label mr-2" tabindex="0">Filter:</a>
@@ -43,12 +43,18 @@
 			<!-- <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li> -->
 		</ul>
 	</nav>
-	<div class="container">
-		<h1>This is a Heading</h1>
-		<p>This is a paragraph.</p>
+	<div class="board-actions">
+		<div class="container actions-wrapper p-2">
+
+			<form class="query">
+				<input type="search" id="querystring" name="querystring" class="task-input" placeholder="&#128269; Search">
+			</form>
+			<button class="add-account px-3 py-2">Create new account</button>
+		</div>
+	</div>
+	<div class="board">
 
 	</div>
-
 	<script src="scripts/app.js"></script>
 </body>
 

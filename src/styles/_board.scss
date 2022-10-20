@@ -1,0 +1,34 @@
+.board-actions {
+    background-color: $body-bg-primary;
+
+    .actions-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+
+        .query {
+            margin-right: auto;
+
+            input[type=search] {
+                max-width: 500px;
+                width: 100%;
+            }
+
+        }
+
+        .add-account {
+            background-color: $cta-bg;
+            border: none;
+            color: $cta-text;
+            border-radius: $radius;
+            font-size: 16px;
+
+            &:focus,
+            &:active {
+                outline-color: $body-text-primary;
+                border-color: $body-text-primary;
+            }
+        }
+    }
+}

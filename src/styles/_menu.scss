@@ -103,7 +103,7 @@
 
                     &:hover {
                         a {
-                            color: white;
+                            color: $menu-text-active;
                         }
 
                     }
@@ -112,7 +112,7 @@
                         background-color: $menu-bg-secondary;
 
                         a {
-                            color: white;
+                            color: $menu-text-active;
                         }
                     }
                 }

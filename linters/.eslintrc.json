@@ -11,7 +11,8 @@
 	},
 	"globals": {
 		"_": false,
-		"environment": true
+		"environment": true,
+		"exposeTask": true
 	},
 	"extends": ["eslint:recommended"],
 	"ignorePatterns": ["node_modules/*", "build/*"],

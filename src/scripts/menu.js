@@ -1,7 +1,3 @@
-var taskSpace = (function() {
-'use strict';
-
-let exposeTask = {};let bla = 5565;
 function throttle(func, wait, options) {
 	var context, args, result;
 	var timeout = null;
@@ -70,7 +66,3 @@ function winResize() {
 }
 
 window.addEventListener('resize', throttle(winResize, 500));
-
-return exposeTask;
-
-})();

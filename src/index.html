@@ -11,25 +11,40 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<meta name="language" content="English">
 
-	<!-- <link href="http://fonts.cdnfonts.com/css/arial-mt" rel="stylesheet"> --> <!-- added font-face in app.css -->
+	<!-- <link href="http://fonts.cdnfonts.com/css/arial-mt" rel="stylesheet"> -->
+	<!-- added font-face in app.css -->
 	<link rel="stylesheet" href="styles/app.css">
 </head>
 
 <body class="task-body">
 	<nav role="navigation" class="main-nav">
 		<ul class="main-nav-list container px-4">
-			<li class="logo">
+			<li class="logo my-2">
 				<a class="logo-link" href="/" title="test">
 					<img height="32" src="images/logo.svg" alt="ljhsdg">
 					Platfrom admin
 				</a>
 			</li>
-			<li class="filter-menu">
-				<a class="filter-label" tabindex="0">Filter</a>
+			<li class="filter-toggle">
+				<div class="box" onclick="myFunction(this)">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+					<div class="bar3"></div>
+				</div>
+
+				<script>
+					function myFunction(x) {
+						x.classList.toggle("change");
+					}
+				</script>
+
+			</li>
+			<li class="filter-menu my-2">
+				<a class="filter-label mr-2" tabindex="0">Filter:</a>
 				<ul class="filter-items">
-					<li class="item"><a href="#">All</a></li>
-					<li class="item"><a href="#">Free</a></li>
-					<li class="item"><a href="#">Paying</a></li>
+					<li class="item active"><a class="p-3" href="#">All</a></li>
+					<li class="item"><a class="p-3" href="#">Free</a></li>
+					<li class="item"><a class="p-3" href="#">Paying</a></li>
 				</ul>
 			</li>
 			<!-- <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li> -->
@@ -37,7 +52,7 @@
 	</nav>
 	<div class="container">
 		<h1>This is a Heading</h1>
-	<p>This is a paragraph.</p>
+		<p>This is a paragraph.</p>
 
 	</div>
 

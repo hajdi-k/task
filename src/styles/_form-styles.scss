@@ -1,16 +1,16 @@
 .task-input {
-    width: 100%;
-    padding: $spacer*.5 $spacer;
-    margin: $spacer*.5 0;
-    display: inline-block;
-    border: 1px solid $body-text-secondary;
-    border-radius: $radius;
-    box-sizing: border-box;
-    color: $body-text-primary;
+	width: 100%;
+	padding: $spacer*.5 $spacer;
+	margin: $spacer*.5 0;
+	display: inline-block;
+	border: 1px solid $body-text-secondary;
+	border-radius: $radius;
+	box-sizing: border-box;
+	color: $body-text-primary;
 
-    &:focus,
-    &:active {
-        outline-color: $body-text-primary;
-        border-color: $body-text-primary;
-    }
+	&:focus,
+	&:active {
+		outline-color: $body-text-primary;
+		border-color: $body-text-primary;
+	}
 }

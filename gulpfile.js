@@ -15,46 +15,46 @@ const pngcrush = require('imagemin-pngcrush');
 const paths = {
 	html: ['src/index.html'],
 	scripts: ['src/scripts/**/*.js'],
-	styles: ['src/styles/**/*.scss' , 'src/styles/external/**/*.css'],
+	styles: ['src/styles/**/*.scss', 'src/styles/external/**/*.css'],
 	images: ['src/images/**/*']
 	// fonts: ['assets/fonts/**/*']
 };
 
 const lintHTML = (done) => {
-    const errors = [];
+	const errors = [];
 
 	const stream = src(paths.html)
-	.pipe(each((content, file, callback) => {
-		const config = JSON.parse(fs.readFileSync('linters/.htmlhintrc.json', {encoding: 'utf8'}));
+		.pipe(each((content, file, callback) => {
+			const config = JSON.parse(fs.readFileSync('linters/.htmlhintrc.json', { encoding: 'utf8' }));
 
-		// if (file.path.search('app.js') !== -1) {
-		// 	config['doctype-first'] = true;
-		// }
+			// if (file.path.search('app.js') !== -1) {
+			// 	config['doctype-first'] = true;
+			// }
 
-		const messages = HTMLHint.verify(content, config);
+			const messages = HTMLHint.verify(content, config);
 
-		if (messages.length > 0) {
-			gutil.log('HTMLHint had issues with', file.path);
-		}
-
-		for (const index in messages) {
-			const message = messages[index];
-
-			switch (message.type) {
-				case 'error':
-					gutil.log(gutil.colors.red('Error'), message.message);
-					gutil.log('Line:', message.line);
-					gutil.log('Column:', message.col);
-					gutil.log();
-
-					errors.push(message);
-
-					break;
+			if (messages.length > 0) {
+				gutil.log('HTMLHint had issues with', file.path);
 			}
-		}
 
-		callback(null, content);
-	}));
+			for (const index in messages) {
+				const message = messages[index];
+
+				switch (message.type) {
+					case 'error':
+						gutil.log(gutil.colors.red('Error'), message.message);
+						gutil.log('Line:', message.line);
+						gutil.log('Column:', message.col);
+						gutil.log();
+
+						errors.push(message);
+
+						break;
+				}
+			}
+
+			callback(null, content);
+		}));
 
 	stream.end = () => {
 		if (errors.length > 0) {
@@ -70,21 +70,21 @@ const lintHTML = (done) => {
 };
 
 const lintJS = (done) => {
-    return src(paths.scripts)
-    .pipe(eslint({
-		configFile: 'linters/.eslintrc.json'
-	}))
-    // Format all results at once, at the end
-    .pipe(eslint.format())
-    // failAfterError will emit an error (fail) just before the stream finishes if any file has an error
-    .pipe(eslint.failAfterError());
+	return src(paths.scripts)
+		.pipe(eslint({
+			configFile: 'linters/.eslintrc.json'
+		}))
+		// Format all results at once, at the end
+		.pipe(eslint.format())
+		// failAfterError will emit an error (fail) just before the stream finishes if any file has an error
+		.pipe(eslint.failAfterError());
 };
 
 const buildStyles = (done) => {
 	return src(paths.styles)
-	  .pipe(sass.sync().on('error', sass.logError))
-	  .pipe(dest('dist/styles'))
-	  .on('end', done);
+		.pipe(sass.sync().on('error', sass.logError))
+		.pipe(dest('dist/styles'))
+		.on('end', done);
 };
 
 const buildScripts = (done) => {
@@ -104,26 +104,26 @@ const buildScripts = (done) => {
 
 const buildTemplates = (done) => {
 	src(paths.html)
-	.pipe(cachebust({
-		type: 'timestamp'
-	}))
-	.pipe(dest('dist'))
-	.on('end', done);
+		.pipe(cachebust({
+			type: 'timestamp'
+		}))
+		.pipe(dest('dist'))
+		.on('end', done);
 }
 
 const processImages = (done) => {
 	return src(paths.images)
-	.pipe(imagemin({
-		optimizationLevel: 5,
-		progressive: true,
-		svgoPlugins: [
-			{removeViewBox: false},
-			{cleanupIDs: false}
-		],
-		use: [pngcrush()]
-	}))
-	.pipe(dest('dist/images'))
-	.on('end', done);
+		.pipe(imagemin({
+			optimizationLevel: 5,
+			progressive: true,
+			svgoPlugins: [
+				{ removeViewBox: false },
+				{ cleanupIDs: false }
+			],
+			use: [pngcrush()]
+		}))
+		.pipe(dest('dist/images'))
+		.on('end', done);
 };
 
 const serve = () => {
@@ -159,4 +159,4 @@ const serve = () => {
 
 exports.lint = series(lintHTML, lintJS);
 exports.default = series(lintHTML, buildTemplates, lintJS, buildScripts, buildStyles, processImages);
-exports.serve  = series(exports.default, serve);
+exports.serve = series(exports.default, serve);

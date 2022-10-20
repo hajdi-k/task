@@ -1,156 +1,158 @@
 .task-body .main-nav {
-    background-color: $menu-bg-primary;
+	background-color: $menu-bg-primary;
 
-    .main-nav-list {
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        list-style: none;
+	.main-nav-list {
+		margin: 0 auto;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		list-style: none;
 
-        a {
-            text-decoration: none;
-        }
+		a {
+			text-decoration: none;
+		}
 
-        .logo {
-            margin-right: auto;
-            min-height: 38px;
-            display: flex;
+		.logo {
+			margin-right: auto;
+			min-height: 38px;
+			display: flex;
 
-            .logo-link {
-                display: flex;
-                align-items: center;
-                text-transform: uppercase;
-                font-weight: bold;
-                color: $menu-text-primary;
+			.logo-link {
+				display: flex;
+				align-items: center;
+				text-transform: uppercase;
+				font-weight: bold;
+				color: $menu-text-primary;
 
-                img {
-                    margin-right: 5px;
-                    filter: invert(16%) sepia(69%) saturate(4112%) hue-rotate(188deg) brightness(94%) contrast(96%);
-                }
-            }
-        }
+				img {
+					margin-right: 5px;
+					filter: invert(16%) sepia(69%) saturate(4112%) hue-rotate(188deg) brightness(94%) contrast(96%);
+				}
+			}
+		}
 
-        .filter-toggle {
-            display: none;
+		.filter-toggle {
+			display: none;
 
-            .box {
-                display: inline-block;
-                cursor: pointer;
-            }
+			.box {
+				display: inline-block;
+				cursor: pointer;
+			}
 
-            .bar1,
-            .bar2,
-            .bar3 {
-                height: 5px;
-                margin: 6px auto;
-                background-color: $menu-text-primary;
-                transition: 0.4s;
-            }
+			.bar1,
+			.bar2,
+			.bar3 {
+				height: 5px;
+				margin: 6px auto;
+				background-color: $menu-text-primary;
+				transition: 0.4s;
+			}
 
-            .bar1 {
-                width: 35px;
-            }
-            .bar2 {
-                width: 25px;
-            }
-            .bar3 {
-                width: 15px;
-            }
+			.bar1 {
+				width: 35px;
+			}
 
-            .open .bar1 {
-                width: 35px;
-                transform: translate(0, 11px) rotate(-45deg);
-            }
+			.bar2 {
+				width: 25px;
+			}
 
-            .open .bar2 {
-                width: 35px;
-                opacity: 0;
-            }
+			.bar3 {
+				width: 15px;
+			}
 
-            .open .bar3 {
-                width: 35px;
-                transform: translate(0, -11px) rotate(45deg);
-            }
-        }
+			.open .bar1 {
+				width: 35px;
+				transform: translate(0, 11px) rotate(-45deg);
+			}
 
-        .filter-menu {
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            color: $menu-text-secondary;
+			.open .bar2 {
+				width: 35px;
+				opacity: 0;
+			}
 
-            &.closed {
-                display: none;
-            }
+			.open .bar3 {
+				width: 35px;
+				transform: translate(0, -11px) rotate(45deg);
+			}
+		}
 
-            .filter-label {
-                text-transform: uppercase;
-            }
+		.filter-menu {
+			flex-shrink: 0;
+			display: flex;
+			align-items: center;
+			color: $menu-text-secondary;
 
-            .filter-items {
-                display: flex;
-                list-style: none;
+			&.closed {
+				display: none;
+			}
 
-                .item {
-                    border-radius: $radius;
+			.filter-label {
+				text-transform: uppercase;
+			}
 
-                    >a {
-                        color: $menu-text-secondary;
-                        display: inline-block;
+			.filter-items {
+				display: flex;
+				list-style: none;
 
-                    }
+				.item {
+					border-radius: $radius;
 
-                    &:hover {
-                        a {
-                            color: $menu-text-active;
-                        }
+					>a {
+						color: $menu-text-secondary;
+						display: inline-block;
 
-                    }
+					}
 
-                    &.active {
-                        background-color: $menu-bg-secondary;
+					&:hover {
+						a {
+							color: $menu-text-active;
+						}
 
-                        a {
-                            color: $menu-text-active;
-                        }
-                    }
-                }
-            }
-        }
-    }
+					}
 
-    @media (max-width: $screen-md) {
-        .main-nav-list {
-            flex-wrap: wrap;
+					&.active {
+						background-color: $menu-bg-secondary;
 
-            .filter-toggle {
-                display: list-item;
-            }
+						a {
+							color: $menu-text-active;
+						}
+					}
+				}
+			}
+		}
+	}
 
-            .filter-menu {
-                width: 100%;
-                margin-bottom: 0 !important;
+	@media (max-width: $screen-md) {
+		.main-nav-list {
+			flex-wrap: wrap;
 
-                .filter-label {
-                    display: none;
-                }
+			.filter-toggle {
+				display: list-item;
+			}
 
-                .filter-items {
-                    width: 100%;
+			.filter-menu {
+				width: 100%;
+				margin-bottom: 0 !important;
 
-                    .item {
-                        flex: 1;
-                        // border-radius: 0;
-                        text-align: center;
+				.filter-label {
+					display: none;
+				}
 
-                        &.active {
-                            // background-color: transparent;
-                            // border-bottom: ($spacer*.25) solid $menu-text-primary;
-                        }
-                    }
-                }
-            }
-        }
-    }
+				.filter-items {
+					width: 100%;
+
+					.item {
+						flex: 1;
+						// border-radius: 0;
+						text-align: center;
+
+						&.active {
+							// background-color: transparent;
+							// border-bottom: ($spacer*.25) solid $menu-text-primary;
+						}
+					}
+				}
+			}
+		}
+	}
 }

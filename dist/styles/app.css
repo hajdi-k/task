@@ -79,7 +79,7 @@
   padding: 0;
   margin: 0;
   font-family: "Arial MT", sans-serif;
-  color: red;
+  color: #363636;
 }
 .task-body * {
   box-sizing: border-box;
@@ -221,11 +221,11 @@
   border: 1px solid #b0b0b0;
   border-radius: 0.5rem;
   box-sizing: border-box;
-  color: red;
+  color: #363636;
 }
 .task-input:focus, .task-input:active {
-  outline-color: red;
-  border-color: red;
+  outline-color: #363636;
+  border-color: #363636;
 }
 
 .board-actions {
@@ -238,6 +238,8 @@
 }
 .board-actions .actions-wrapper .query {
   margin-right: auto;
+  max-width: 400px;
+  width: 100%;
 }
 .board-actions .actions-wrapper .query input[type=search] {
   max-width: 500px;
@@ -251,6 +253,6 @@
   font-size: 16px;
 }
 .board-actions .actions-wrapper .add-account:focus, .board-actions .actions-wrapper .add-account:active {
-  outline-color: red;
-  border-color: red;
+  outline-color: #363636;
+  border-color: #363636;
 }

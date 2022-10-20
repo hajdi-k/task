@@ -49,12 +49,7 @@
 
         @media (min-width: $screen-md) {}
 
-        @media (min-width: $screen-lg) {
-            li {
-                background-color: pink;
-            }
-
-        }
+        @media (min-width: $screen-lg) {}
 
         @media (min-width: $screen-xl) {}
     }

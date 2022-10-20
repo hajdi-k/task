@@ -22,6 +22,16 @@
   font-weight: 700;
   src: local("Arial MT"), url(https://fonts.cdnfonts.com/s/29107/ARIALBOLDITALICMT.woff) format("woff");
 }
+.px-2 {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+.px-4 {
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
 .task-body {
   box-sizing: border-box;
   padding: 0;
@@ -76,11 +86,6 @@
 .task-body .main-nav .main-nav-list .filter-menu .filter-items {
   display: flex;
   list-style: none;
-}
-@media (min-width: 992px) {
-  .task-body .main-nav .main-nav-list li {
-    background-color: pink;
-  }
 }
 p {
   color: blue;

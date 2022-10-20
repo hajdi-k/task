@@ -49,6 +49,11 @@
   margin-bottom: 0.5rem !important;
 }
 
+.my-3 {
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+
 .task-body {
   box-sizing: border-box;
   padding: 0;
@@ -79,6 +84,8 @@
 }
 .task-body .main-nav .main-nav-list .logo {
   margin-right: auto;
+  min-height: 38px;
+  display: flex;
 }
 .task-body .main-nav .main-nav-list .logo .logo-link {
   display: flex;
@@ -115,15 +122,15 @@
 .task-body .main-nav .main-nav-list .filter-toggle .bar3 {
   width: 15px;
 }
-.task-body .main-nav .main-nav-list .filter-toggle .change .bar1 {
+.task-body .main-nav .main-nav-list .filter-toggle .open .bar1 {
   width: 35px;
   transform: translate(0, 11px) rotate(-45deg);
 }
-.task-body .main-nav .main-nav-list .filter-toggle .change .bar2 {
+.task-body .main-nav .main-nav-list .filter-toggle .open .bar2 {
   width: 35px;
   opacity: 0;
 }
-.task-body .main-nav .main-nav-list .filter-toggle .change .bar3 {
+.task-body .main-nav .main-nav-list .filter-toggle .open .bar3 {
   width: 35px;
   transform: translate(0, -11px) rotate(45deg);
 }
@@ -132,6 +139,9 @@
   display: flex;
   align-items: center;
   color: #80c4da;
+}
+.task-body .main-nav .main-nav-list .filter-menu.closed {
+  display: none;
 }
 .task-body .main-nav .main-nav-list .filter-menu .filter-label {
   text-transform: uppercase;

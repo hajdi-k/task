@@ -25,6 +25,11 @@
     margin-bottom: ($spacer * .5) !important;
 }
 
+.my-3 {
+    margin-top: ($spacer * 1) !important;
+    margin-bottom: ($spacer * 1) !important;
+}
+
 // 0 - to set the margin or padding to 0
 // 1 - (by default) sets the margin or padding to $spacer* .25 i.e. .25 rem or 4px
 // 2 - (by default) sets the margin or padding to $spacer* .5 i.e. .5 rem or 8px

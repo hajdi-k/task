@@ -41,17 +41,31 @@ function throttle(func, wait, options) {
 }
 
 let menuOpen = true;
+const menuToggleElem = document.getElementsByClassName('menu-toggle')[0];
+const filterMenuElem = document.getElementsByClassName('filter-menu')[0];
+
 let menuToggle = (open) => {
 	if (typeof open !== 'undefined') {
 		menuOpen = open;
 	} else {
 		menuOpen = !menuOpen;
 	}
-	console.log(exposeTask);
 
-	console.log(menuOpen);
-
-	// x.classList.toggle("change");
+	if (menuOpen) {
+		if (!menuToggleElem.classList.contains('open')) {
+			menuToggleElem.classList.toggle('open');
+		}
+		if (filterMenuElem.classList.contains('closed')) {
+			filterMenuElem.classList.toggle('closed');
+		}
+	} else {
+		if (menuToggleElem.classList.contains('open')) {
+			menuToggleElem.classList.toggle('open');
+		}
+		if (!filterMenuElem.classList.contains('closed')) {
+			filterMenuElem.classList.toggle('closed');
+		}
+	}
 };
 
 exposeTask.menuToggle = menuToggle;
@@ -65,4 +79,5 @@ function winResize() {
 	}
 }
 
-window.addEventListener('resize', throttle(winResize, 500));
+winResize();
+window.addEventListener('resize', throttle(winResize, 250));

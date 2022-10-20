@@ -13,7 +13,7 @@
 
 	<!-- <link href="http://fonts.cdnfonts.com/css/arial-mt" rel="stylesheet"> -->
 	<!-- added font-face in app.css -->
-	<link rel="stylesheet" href="styles/app.css?t=1666276969497">
+	<link rel="stylesheet" href="styles/app.css?t=1666277854145">
 </head>
 
 <body class="task-body">
@@ -35,9 +35,9 @@
 			<li class="filter-menu my-2">
 				<a class="filter-label mr-2" tabindex="0">Filter:</a>
 				<ul class="filter-items">
-					<li class="item active"><a class="p-3" href="#">All</a></li>
-					<li class="item"><a class="p-3" href="#">Free</a></li>
-					<li class="item"><a class="p-3" href="#">Paying</a></li>
+					<li class="item all"><a class="p-3" href="#" onclick="taskSpace.queryData('all')">All</a></li>
+					<li class="item free"><a class="p-3" href="#" onclick="taskSpace.queryData('free')">Free</a></li>
+					<li class="item paying"><a class="p-3" href="#" onclick="taskSpace.queryData('paying')">Paying</a></li>
 				</ul>
 			</li>
 			<!-- <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li> -->
@@ -49,7 +49,7 @@
 
 	</div>
 
-	<script src="scripts/app.js?t=1666276969497"></script>
+	<script src="scripts/app.js?t=1666277854145"></script>
 </body>
 
 </html>

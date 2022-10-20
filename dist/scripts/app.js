@@ -7,24 +7,23 @@ let activeGroup = '';
 
 let queryData = (group = 'all', search = '') => {
 	if (!groups.includes(group)) {
-        group = 'all';
-    }
+		group = 'all';
+	}
 
-    activeGroup = '';
+	activeGroup = '';
+	Array.from(filterItems.children).forEach((child) => {
+		child.classList.remove('active');
+		if (child.classList.contains(group)) {
+			child.classList.add('active');
+		}
+	});
 
-    setTimeout((filterItems) => {
-        Array.from(filterItems.children).forEach((child) => {
-            child.classList.remove('active');
-            console.log(child.classList, group);
-            if (child.classList.contains(group)) {
-                child.classList.add('active');
-                console.log('paying');
-            }
-        });
-        activeGroup = group;
-    }, 500, filterItems);
+	setTimeout((filterItems) => {
+		activeGroup = group;
+	}, 500, filterItems);
 };
 
+queryData();
 exposeTask.queryData = queryData;
 function throttle(func, wait, options) {
 	var context, args, result;

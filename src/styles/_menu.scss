@@ -1,0 +1,47 @@
+.task-body .main-nav {
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+
+    .logo {
+        margin-right: auto;
+    }
+
+    .filter-menu {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+
+        .filter-items {
+            display: flex;
+            list-style: none;
+        }
+    }
+
+    li {
+        margin: 5px;
+        background-color: yellow;
+    }
+
+    @media (min-width: $screen-sm) {
+
+    }
+
+    @media (min-width: $screen-md) {
+
+
+    }
+
+    @media (min-width: $screen-lg) {
+        li {
+            background-color: pink;
+        }
+
+    }
+
+    @media (min-width: $screen-xl) {
+
+    }
+}

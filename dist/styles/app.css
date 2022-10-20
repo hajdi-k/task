@@ -1,13 +1,37 @@
-.testsss {
-  color: blue;
+.task-body * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
-.test .ggg {
-  color: green;
-  font-weight: 200;
+.task-body .main-nav {
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  list-style: none;
 }
-
+.task-body .main-nav .logo {
+  margin-right: auto;
+}
+.task-body .main-nav .filter-menu {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.task-body .main-nav .filter-menu .filter-items {
+  display: flex;
+  list-style: none;
+}
+.task-body .main-nav li {
+  margin: 5px;
+  background-color: yellow;
+}
+@media (min-width: 992px) {
+  .task-body .main-nav li {
+    background-color: pink;
+  }
+}
 p {
-  color: red;
-  font-weight: 500;
+  color: blue;
 }

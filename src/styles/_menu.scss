@@ -1,47 +1,61 @@
 .task-body .main-nav {
-    background-color: red;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    list-style: none;
+    background-color: #259bc1;
+    padding: 10px 0;
 
-    .logo {
-        margin-right: auto;
-    }
-
-    .filter-menu {
-        flex-shrink: 0;
+    .main-nav-list {
+        margin: 0 auto;
         display: flex;
         align-items: center;
+        justify-content: flex-end;
+        list-style: none;
 
-        .filter-items {
+        a {
+            text-decoration: none;
+        }
+
+        .logo {
+            margin-right: auto;
+
+            .logo-link {
+                display: flex;
+                align-items: center;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #055e92;
+
+                img {
+                    margin-right: 5px;
+                    filter: invert(16%) sepia(69%) saturate(4112%) hue-rotate(188deg) brightness(94%) contrast(96%);
+                }
+            }
+        }
+
+        .filter-menu {
+            flex-shrink: 0;
             display: flex;
-            list-style: none;
-        }
-    }
+            align-items: center;
 
-    li {
-        margin: 5px;
-        background-color: yellow;
-    }
+            .filter-label {
+                text-transform: uppercase;
+            }
 
-    @media (min-width: $screen-sm) {
-
-    }
-
-    @media (min-width: $screen-md) {
-
-
-    }
-
-    @media (min-width: $screen-lg) {
-        li {
-            background-color: pink;
+            .filter-items {
+                display: flex;
+                list-style: none;
+            }
         }
 
-    }
+        @media (min-width: $screen-sm) {}
 
-    @media (min-width: $screen-xl) {
+        @media (min-width: $screen-md) {}
 
+        @media (min-width: $screen-lg) {
+            li {
+                background-color: pink;
+            }
+
+        }
+
+        @media (min-width: $screen-xl) {}
     }
 }

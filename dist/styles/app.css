@@ -1,34 +1,84 @@
+@font-face {
+  font-family: arial mt;
+  font-style: normal;
+  font-weight: 400;
+  src: local("Arial MT"), url(https://fonts.cdnfonts.com/s/29107/ARIALMTMEDIUM.woff) format("woff");
+}
+@font-face {
+  font-family: arial mt;
+  font-style: italic;
+  font-weight: 400;
+  src: local("Arial MT"), url(https://fonts.cdnfonts.com/s/29107/ARIALMTMEDIUMITALIC.woff) format("woff");
+}
+@font-face {
+  font-family: arial mt;
+  font-style: normal;
+  font-weight: 700;
+  src: local("Arial MT"), url(https://fonts.cdnfonts.com/s/29107/ARIALBOLDMT.woff) format("woff");
+}
+@font-face {
+  font-family: arial mt;
+  font-style: italic;
+  font-weight: 700;
+  src: local("Arial MT"), url(https://fonts.cdnfonts.com/s/29107/ARIALBOLDITALICMT.woff) format("woff");
+}
+.task-body {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Arial MT", sans-serif;
+}
 .task-body * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+.task-body .container {
+  max-width: 1200px;
+}
 
 .task-body .main-nav {
-  background-color: red;
+  background-color: #259bc1;
+  padding: 10px 0;
+}
+.task-body .main-nav .main-nav-list {
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   list-style: none;
 }
-.task-body .main-nav .logo {
+.task-body .main-nav .main-nav-list a {
+  text-decoration: none;
+}
+.task-body .main-nav .main-nav-list .logo {
   margin-right: auto;
 }
-.task-body .main-nav .filter-menu {
+.task-body .main-nav .main-nav-list .logo .logo-link {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #055e92;
+}
+.task-body .main-nav .main-nav-list .logo .logo-link img {
+  margin-right: 5px;
+  filter: invert(16%) sepia(69%) saturate(4112%) hue-rotate(188deg) brightness(94%) contrast(96%);
+}
+.task-body .main-nav .main-nav-list .filter-menu {
   flex-shrink: 0;
   display: flex;
   align-items: center;
 }
-.task-body .main-nav .filter-menu .filter-items {
+.task-body .main-nav .main-nav-list .filter-menu .filter-label {
+  text-transform: uppercase;
+}
+.task-body .main-nav .main-nav-list .filter-menu .filter-items {
   display: flex;
   list-style: none;
 }
-.task-body .main-nav li {
-  margin: 5px;
-  background-color: yellow;
-}
 @media (min-width: 992px) {
-  .task-body .main-nav li {
+  .task-body .main-nav .main-nav-list li {
     background-color: pink;
   }
 }

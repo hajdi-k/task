@@ -9,12 +9,14 @@ const browserSync = require('browser-sync').create();
 var concat = require('gulp-concat');
 var wrap = require('gulp-wrap');
 const cachebust = require('gulp-cache-bust');
+const imagemin = require('gulp-imagemin');
+const pngcrush = require('imagemin-pngcrush');
 
 const paths = {
 	html: ['src/index.html'],
 	scripts: ['src/scripts/**/*.js'],
 	styles: ['src/styles/**/*.scss' , 'src/styles/external/**/*.css'],
-	// images: ['assets/images/**/*'],
+	images: ['src/images/**/*']
 	// fonts: ['assets/fonts/**/*']
 };
 
@@ -66,6 +68,7 @@ const lintHTML = (done) => {
 
 	return stream;
 };
+
 const lintJS = (done) => {
     return src(paths.scripts)
     .pipe(eslint({
@@ -76,12 +79,14 @@ const lintJS = (done) => {
     // failAfterError will emit an error (fail) just before the stream finishes if any file has an error
     .pipe(eslint.failAfterError());
 };
+
 const buildStyles = (done) => {
 	return src(paths.styles)
 	  .pipe(sass.sync().on('error', sass.logError))
 	  .pipe(dest('dist/styles'))
 	  .on('end', done);
 };
+
 const buildScripts = (done) => {
 	src(paths.scripts)
 		.pipe(concat('app.js'))
@@ -96,6 +101,7 @@ const buildScripts = (done) => {
 		.pipe(dest('./dist/scripts')) */
 		.on('end', done);
 }
+
 const buildTemplates = (done) => {
 	src(paths.html)
 	.pipe(cachebust({
@@ -104,6 +110,21 @@ const buildTemplates = (done) => {
 	.pipe(dest('dist'))
 	.on('end', done);
 }
+
+const processImages = (done) => {
+	return src(paths.images)
+	.pipe(imagemin({
+		optimizationLevel: 5,
+		progressive: true,
+		svgoPlugins: [
+			{removeViewBox: false},
+			{cleanupIDs: false}
+		],
+		use: [pngcrush()]
+	}))
+	.pipe(dest('dist/images'))
+	.on('end', done);
+};
 
 const serve = () => {
 	browserSync.init({
@@ -137,5 +158,5 @@ const serve = () => {
 
 
 exports.lint = series(lintHTML, lintJS);
-exports.default = series(lintHTML, buildTemplates, lintJS, buildScripts, buildStyles);
+exports.default = series(lintHTML, buildTemplates, lintJS, buildScripts, buildStyles, processImages);
 exports.serve  = series(exports.default, serve);

@@ -132,7 +132,7 @@ const serve = () => {
 		server: {
 			baseDir: 'dist',
 			routes: {
-				// '/rudimental-test': 'rudimental-test',
+				'/test': 'test',
 			}
 		},
 		files: [

@@ -256,3 +256,38 @@
   outline-color: #363636;
   border-color: #363636;
 }
+
+.board-table .pretend-row {
+  border-bottom: 2px solid #b0b0b0;
+}
+
+@media (max-width: 992px) {
+  tr[class=header-row] {
+    display: none;
+  }
+}
+@media (min-width: 993px) {
+  tr[class=header] {
+    display: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  table[class=responsive-column]:not([class=description]) {
+    width: 50% !important;
+    max-width: 50% !important;
+  }
+  table[class=description] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 768px) {
+  table[class=responsive-column] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  table[class=description] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}

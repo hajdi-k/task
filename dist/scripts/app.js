@@ -18,9 +18,29 @@ let queryData = (group = 'all', search = '') => {
 		}
 	});
 
-	setTimeout((filterItems) => {
-		activeGroup = group;
-	}, 500, filterItems);
+	// setTimeout((filterItems) => {
+	// 	activeGroup = group;
+	// }, 500, filterItems);
+
+	fetch('test/test.json', {
+		method: 'GET'
+	})
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
+
+	/* const options = {
+		method: 'GET',
+		headers: {
+			'X-RapidAPI-Key': 'bfd3cdb7bfmsh09a78309ee1ff00p16d4cejsna177a7c77a2f',
+			'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
+		}
+	};
+
+	fetch('https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?q=taylor%20swift&pageNumber=1&pageSize=10&autoCorrect=true', options)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err)); */
 };
 
 queryData();

@@ -55,6 +55,10 @@
   padding: 1rem !important;
 }
 
+.p-4 {
+  padding: 1.5rem !important;
+}
+
 .px-4 {
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
@@ -257,36 +261,50 @@
   border-color: #363636;
 }
 
-.board-table .pretend-row {
-  border-bottom: 2px solid #b0b0b0;
+.board .board-table td,
+.board .board-table th {
+  font-weight: 400;
+  color: #b0b0b0;
+  text-align: left;
+  padding: 0.5rem;
 }
-
+.board .board-table td[class=company-name],
+.board .board-table th[class=company-name] {
+  color: #363636;
+}
+.board .board-table .pretend-row {
+  border-bottom: 1px solid #b0b0b0;
+}
 @media (max-width: 992px) {
-  tr[class=header-row] {
+  .board tr[class=header-row] {
     display: none;
   }
 }
 @media (min-width: 993px) {
-  tr[class=header] {
+  .board.container {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+  }
+  .board tr[class=header] {
     display: none;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  table[class=responsive-column]:not([class=description]) {
+  .board table[class=responsive-column]:not([class=description]) {
     width: 50% !important;
     max-width: 50% !important;
   }
-  table[class=description] {
+  .board table[class=description] {
     width: 100% !important;
     max-width: 100% !important;
   }
 }
 @media (max-width: 768px) {
-  table[class=responsive-column] {
+  .board table[class=responsive-column] {
     width: 100% !important;
     max-width: 100% !important;
   }
-  table[class=description] {
+  .board table[class=description] {
     width: 100% !important;
     max-width: 100% !important;
   }

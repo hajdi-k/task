@@ -9,11 +9,10 @@
 
 		.query {
 			margin-right: auto;
-			max-width: 400px;
+			max-width: 500px;
 			width: 100%;
 
 			input[type=search] {
-				max-width: 500px;
 				width: 100%;
 			}
 
@@ -30,6 +29,21 @@
 			&:active {
 				outline-color: $body-text-primary;
 				border-color: $body-text-primary;
+			}
+		}
+
+		@media (max-width: $screen-md) {
+			flex-wrap: wrap;
+
+			.add-account {
+				order: 1;
+				width: 100%;
+			}
+
+			.query {
+				order: 2;
+				width: 100%;
+				max-width: 100%;
 			}
 		}
 	}

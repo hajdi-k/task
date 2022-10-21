@@ -242,11 +242,10 @@
 }
 .board-actions .actions-wrapper .query {
   margin-right: auto;
-  max-width: 400px;
+  max-width: 500px;
   width: 100%;
 }
 .board-actions .actions-wrapper .query input[type=search] {
-  max-width: 500px;
   width: 100%;
 }
 .board-actions .actions-wrapper .add-account {
@@ -259,6 +258,20 @@
 .board-actions .actions-wrapper .add-account:focus, .board-actions .actions-wrapper .add-account:active {
   outline-color: #363636;
   border-color: #363636;
+}
+@media (max-width: 768px) {
+  .board-actions .actions-wrapper {
+    flex-wrap: wrap;
+  }
+  .board-actions .actions-wrapper .add-account {
+    order: 1;
+    width: 100%;
+  }
+  .board-actions .actions-wrapper .query {
+    order: 2;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .board .board-table td,
@@ -289,7 +302,7 @@
     display: none;
   }
 }
-@media (min-width: 768px) and (max-width: 992px) {
+@media (min-width: 769px) and (max-width: 992px) {
   .board table[class=responsive-column]:not([class=description]) {
     width: 50% !important;
     max-width: 50% !important;

@@ -34,7 +34,7 @@
 		}
 	}
 
-	@media (min-width: $screen-md) and (max-width: $screen-lg) {
+	@media (min-width: #{$screen-md + 1}) and (max-width: $screen-lg) {
 		table[class="responsive-column"]:not([class="description"]) {
 			width: 50% !important;
 			max-width: 50% !important;

@@ -101,7 +101,7 @@ function generateTableHTML(arr) {
 						</tr>
 						<tr>
 							<td>
-								${item.height}
+								${item._id}
 							</td>
 						</tr>
 					</table>
@@ -113,7 +113,7 @@ function generateTableHTML(arr) {
 						</tr>
 						<tr>
 							<td class="company-name">
-								${item.title}
+								${item.name}
 							</td>
 						</tr>
 					</table>
@@ -125,7 +125,7 @@ function generateTableHTML(arr) {
 						</tr>
 						<tr>
 							<td>
-								${item.width}
+								${item.wikiUrl}
 							</td>
 						</tr>
 					</table>

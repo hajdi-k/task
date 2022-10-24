@@ -106,7 +106,7 @@ function generateTableHTML(arr) {
 						</tr>
 						<tr>
 							<td>
-								${item.height}
+								${item._id}
 							</td>
 						</tr>
 					</table>
@@ -118,7 +118,7 @@ function generateTableHTML(arr) {
 						</tr>
 						<tr>
 							<td class="company-name">
-								${item.title}
+								${item.name}
 							</td>
 						</tr>
 					</table>
@@ -130,7 +130,7 @@ function generateTableHTML(arr) {
 						</tr>
 						<tr>
 							<td>
-								${item.width}
+								${item.wikiUrl}
 							</td>
 						</tr>
 					</table>
@@ -149,7 +149,12 @@ helpers = {
 	debounce,
 	generateTableHTML
 };
-const groups = ['all', 'free', 'paying'];
+const groups = ['all', 'free', 'paying'], categories = ['Human,Elf', 'Human', 'Elf'], fetchMap = groups.reduce((acc, val, i) => {
+	acc[val] = categories[i];
+
+	return acc;
+}, {});
+
 let activeGroup = 'all', timeoutId;
 const searchStates = {
 	'ok': 0,
@@ -178,7 +183,7 @@ const searchStateChange = (newProcess) => {
 		if (newProcess.state == searchStates.ok) {
 			boardError.classList.remove('visible');
 			// console.log(newProcess.data);
-			board.innerHTML = helpers.generateTableHTML(newProcess.data.value);
+			board.innerHTML = helpers.generateTableHTML(newProcess.data.docs);
 		} else {
 			// searchStates.err or unpredicted state! Don't remove old data and state, just return old group actions and show error
 			boardError.innerText = 'An error occured while loading data. Please retry.';
@@ -212,8 +217,6 @@ let queryData = (group, search) => {
 		group = 'all';
 	}
 
-	console.log(JSON.stringify(group), JSON.stringify(search));
-
 	filterItemsList.forEach((child, index) => {
 		child.classList.remove('active');
 		if (child.classList.contains(group)) {
@@ -226,9 +229,16 @@ let queryData = (group, search) => {
 
 	searchStateChange({state: searchStates.run});
 
-	fetch('test/test.json', {
-		method: 'GET'
-	})
+	const options = {
+		method: 'GET',
+		headers: {
+			'Authorization': 'Bearer Og7tAreGFL52PLl9EB8p'
+		}
+	};
+
+	// let prefix = 'test/test.json';
+	let prefix = 'https://the-one-api.dev/v2/character';
+	fetch(prefix + '?race=' + fetchMap[group] + (search ? `&name=/${search}/i` : '') + '&limit=10', options)
 	.then((response) => {
 		if (!response.ok) {
 			throw new Error(response.statusText);
@@ -251,19 +261,6 @@ let queryData = (group, search) => {
 			searchStateChange({state: searchStates.err, data: err});
 		}, 500, err);
 	});
-
-	/* const options = {
-		method: 'GET',
-		headers: {
-			'X-RapidAPI-Key': 'bfd3cdb7bfmsh09a78309ee1ff00p16d4cejsna177a7c77a2f',
-			'X-RapidAPI-Host': 'contextualwebsearch-websearch-v1.p.rapidapi.com'
-		}
-	};
-
-	fetch('https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search/ImageSearchAPI?q=taylor%20swift&pageNumber=1&pageSize=10&autoCorrect=true', options)
-	.then(response => response.json())
-	.then(response => console.log(response))
-	.catch(err => console.error(err)); */
 };
 
 queryData('all', '');

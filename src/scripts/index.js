@@ -14,7 +14,7 @@ const board = document.getElementsByClassName('board')[0];
 const queryElem = document.getElementById('querystring');
 
 const searchStateChange = (newProcess) => {
-	board.innerHTML= '';
+	board.innerHTML = '';
 
 	if (newProcess.state == searchStates.run) {
 		boardLoader.classList.add('visible');
@@ -27,7 +27,7 @@ const searchStateChange = (newProcess) => {
 		if (newProcess.state == searchStates.ok) {
 			boardError.classList.remove('visible');
 			// console.log(newProcess.data);
-			board.innerHTML = generateTableHTML(newProcess.data.value);
+			board.innerHTML = helpers.generateTableHTML(newProcess.data.value);
 		} else {
 			// searchStates.err or unpredicted state! Don't remove old data and state, just return old group actions and show error
 			boardError.innerText = 'An error occured while loading data. Please retry.';
@@ -38,7 +38,7 @@ const searchStateChange = (newProcess) => {
 				if (child.classList.contains(activeGroup)) {
 					child.classList.add('active');
 				}
-			})
+			});
 
 			if (timeoutId) {
 				clearTimeout(timeoutId);
@@ -70,7 +70,7 @@ let queryData = (group, search) => {
 		}
 
 		// filterItemsButtons[index].disabled = true;
-	})
+	});
 	// queryElem.disabled = true;
 
 	searchStateChange({state: searchStates.run});
@@ -90,7 +90,6 @@ let queryData = (group, search) => {
 		}
 	})
 	.then((result) => {
-
 		setTimeout((result) => {
 			activeGroup = group;
 			searchStateChange({state: searchStates.ok, data: result});

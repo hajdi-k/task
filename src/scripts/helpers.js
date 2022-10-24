@@ -56,7 +56,7 @@ function debounce(callback, time) {
 	};
 }
 
-function generateTableHTML (arr) {
+function generateTableHTML(arr) {
 	let table = `
 	<table border="0" cellpadding="0" cellspacing="0" width="100%" class="board-table">
 		<tr class="header-row">
@@ -134,7 +134,7 @@ function generateTableHTML (arr) {
 		</tr>`;
 	});
 
-	table += `</table>`;
+	table += '</table>';
 
 	return table;
 }

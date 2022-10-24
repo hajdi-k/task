@@ -43,7 +43,7 @@ let queryData = (group = 'all', search = '') => {
 		group = 'all';
 	}
 
-	console.log(queryElem.value);
+	// console.log(queryElem.value);
 
 	Array.from(filterItems.children).forEach((child) => {
 		child.classList.remove('active');
@@ -94,6 +94,6 @@ let queryData = (group = 'all', search = '') => {
 	.catch(err => console.error(err)); */
 };
 
-// queryData();
-exposeTask.queryData = throttle(queryData, 500);
-queryElem.addEventListener('input', debounce(queryData, 500));
+queryData();
+exposeTask.queryData = helpers.throttle(queryData, 500);
+queryElem.addEventListener('input', helpers.debounce(queryData, 500));

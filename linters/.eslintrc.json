@@ -10,9 +10,8 @@
 		"es6": true
 	},
 	"globals": {
-		"_": false,
-		"environment": true,
-		"exposeTask": true
+		"exposeTask": true,
+		"helpers": true
 	},
 	"extends": ["eslint:recommended"],
 	"ignorePatterns": ["node_modules/*", "build/*"],

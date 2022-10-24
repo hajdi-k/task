@@ -90,7 +90,7 @@ const buildStyles = (done) => {
 const buildScripts = (done) => {
 	src(paths.scripts)
 		.pipe(concat('app.js'))
-		.pipe(wrap('var taskSpace = (function() {\n\'use strict\';\n\nlet exposeTask = {};<%= contents %>\n\nreturn exposeTask;\n\n})();'))
+		.pipe(wrap('var taskSpace = (function() {\n\'use strict\';\n\nlet exposeTask = {}, helpers;\n\n<%= contents %>\n\nreturn exposeTask;\n\n})();'))
 		.pipe(dest('./dist/scripts'))
 		/* .pipe(uglify({
 			compress: {

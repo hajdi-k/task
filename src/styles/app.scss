@@ -22,9 +22,9 @@
 		padding-left: ($spacer * 1.5) !important;
 		padding-right: ($spacer * 1.5) !important;
 	}
-}
 
-@import "menu";
-@import "form-styles";
-@import "board";
-@import "table";
+	@import "menu";
+	@import "form-styles";
+	@import "board";
+	@import "table";
+}

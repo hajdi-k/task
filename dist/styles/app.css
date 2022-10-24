@@ -104,7 +104,6 @@
   padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
 }
-
 .task-body .main-nav {
   background-color: #259bc3;
 }
@@ -241,8 +240,7 @@
     text-align: center;
   }
 }
-
-.task-input {
+.task-body .task-input {
   width: 100%;
   padding: 0.5rem 1rem;
   margin: 0.5rem 0;
@@ -252,65 +250,63 @@
   box-sizing: border-box;
   color: #363636;
 }
-.task-input:focus, .task-input:active {
+.task-body .task-input:focus, .task-body .task-input:active {
   outline-color: #363636;
   border-color: #363636;
 }
-
-.board-actions {
+.task-body .board-actions {
   background-color: #f8f8f8;
 }
-.board-actions .actions-wrapper {
+.task-body .board-actions .actions-wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-.board-actions .actions-wrapper .query {
+.task-body .board-actions .actions-wrapper .query {
   margin-right: auto;
   max-width: 500px;
   width: 100%;
 }
-.board-actions .actions-wrapper .query input[type=search] {
+.task-body .board-actions .actions-wrapper .query input[type=search] {
   width: 100%;
 }
-.board-actions .actions-wrapper .add-account {
+.task-body .board-actions .actions-wrapper .add-account {
   background-color: #8cc63e;
   border: none;
   color: #ffffff;
   border-radius: 0.5rem;
   font-size: 16px;
 }
-.board-actions .actions-wrapper .add-account:focus, .board-actions .actions-wrapper .add-account:active {
+.task-body .board-actions .actions-wrapper .add-account:focus, .task-body .board-actions .actions-wrapper .add-account:active {
   outline-color: #363636;
   border-color: #363636;
 }
 @media (max-width: 768px) {
-  .board-actions .actions-wrapper {
+  .task-body .board-actions .actions-wrapper {
     flex-wrap: wrap;
   }
-  .board-actions .actions-wrapper .add-account {
+  .task-body .board-actions .actions-wrapper .add-account {
     order: 1;
     width: 100%;
   }
-  .board-actions .actions-wrapper .query {
+  .task-body .board-actions .actions-wrapper .query {
     order: 2;
     width: 100%;
     max-width: 100%;
   }
 }
-
-.board-status .loader-container {
+.task-body .board-status .loader-container {
   text-align: center;
   max-height: 0;
   overflow: hidden;
 }
-.board-status .loader-container.visible {
+.task-body .board-status .loader-container.visible {
   max-height: 62px;
 }
-.board-status .loader-container .dual-ring-loader {
+.task-body .board-status .loader-container .dual-ring-loader {
   display: inline-block;
 }
-.board-status .loader-container .dual-ring-loader:after {
+.task-body .board-status .loader-container .dual-ring-loader:after {
   content: " ";
   display: block;
   width: 40px;
@@ -321,60 +317,59 @@
   border-color: #363636 transparent #363636 transparent;
   animation: dual-ring 1.2s linear infinite;
 }
-.board-status .errors {
+.task-body .board-status .errors {
   color: #de463b;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.25s ease-in;
 }
-.board-status .errors.visible {
+.task-body .board-status .errors.visible {
   max-height: 62px;
 }
-
-.board .board-table td,
-.board .board-table th {
+.task-body .board .board-table td,
+.task-body .board .board-table th {
   font-weight: 400;
   color: #b0b0b0;
   text-align: left;
   padding: 0.5rem;
 }
-.board .board-table td[class=company-name],
-.board .board-table th[class=company-name] {
+.task-body .board .board-table td[class=company-name],
+.task-body .board .board-table th[class=company-name] {
   color: #363636;
 }
-.board .board-table .pretend-row {
+.task-body .board .board-table .pretend-row {
   border-bottom: 1px solid #b0b0b0;
 }
 @media (max-width: 992px) {
-  .board tr[class=header-row] {
+  .task-body .board tr[class=header-row] {
     display: none;
   }
 }
 @media (min-width: 993px) {
-  .board.container {
+  .task-body .board.container {
     padding-left: 3rem !important;
     padding-right: 3rem !important;
   }
-  .board tr[class=header] {
+  .task-body .board tr[class=header] {
     display: none;
   }
 }
 @media (min-width: 769px) and (max-width: 992px) {
-  .board table[class=responsive-column]:not([class=description]) {
+  .task-body .board table[class=responsive-column]:not([class=description]) {
     width: 50% !important;
     max-width: 50% !important;
   }
-  .board table[class=description] {
+  .task-body .board table[class=description] {
     width: 100% !important;
     max-width: 100% !important;
   }
 }
 @media (max-width: 768px) {
-  .board table[class=responsive-column] {
+  .task-body .board table[class=responsive-column] {
     width: 100% !important;
     max-width: 100% !important;
   }
-  .board table[class=description] {
+  .task-body .board table[class=description] {
     width: 100% !important;
     max-width: 100% !important;
   }

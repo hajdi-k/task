@@ -193,13 +193,30 @@
   color: #80c4da;
   display: inline-block;
 }
+.task-body .main-nav .main-nav-list .filter-menu .filter-items .item > button {
+  display: inline-block;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  font-size: 1rem;
+  color: #80c4da;
+}
+.task-body .main-nav .main-nav-list .filter-menu .filter-items .item > button:disabled {
+  cursor: not-allowed;
+}
 .task-body .main-nav .main-nav-list .filter-menu .filter-items .item:hover a {
+  color: #ffffff;
+}
+.task-body .main-nav .main-nav-list .filter-menu .filter-items .item:hover button {
   color: #ffffff;
 }
 .task-body .main-nav .main-nav-list .filter-menu .filter-items .item.active {
   background-color: #51afcd;
 }
 .task-body .main-nav .main-nav-list .filter-menu .filter-items .item.active a {
+  color: #ffffff;
+}
+.task-body .main-nav .main-nav-list .filter-menu .filter-items .item.active button {
   color: #ffffff;
 }
 @media (max-width: 768px) {
@@ -286,7 +303,6 @@
   text-align: center;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.25s ease-in;
 }
 .board-status .loader-container.visible {
   max-height: 62px;

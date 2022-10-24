@@ -13,7 +13,7 @@
 
 	<!-- <link href="http://fonts.cdnfonts.com/css/arial-mt" rel="stylesheet"> -->
 	<!-- added font-face in app.css -->
-	<link rel="stylesheet" href="styles/app.css?t=1666617994803">
+	<link rel="stylesheet" href="styles/app.css?t=1666622220900">
 </head>
 
 <body class="task-body">
@@ -35,10 +35,13 @@
 			<li class="filter-menu my-2">
 				<span class="filter-label mr-2">Filter:</span>
 				<ul class="filter-items">
-					<li class="item all"><a class="p-3" href="#" onclick="taskSpace.queryData('all')">All</a></li>
+					<!-- <li class="item all"><a class="p-3" href="#" onclick="taskSpace.queryData('all')">All</a></li>
 					<li class="item free"><a class="p-3" href="#" onclick="taskSpace.queryData('free')">Free</a></li>
-					<li class="item paying"><a class="p-3" href="#" onclick="taskSpace.queryData('paying')">Paying</a>
-					</li>
+					<li class="item paying"><a class="p-3" href="#" onclick="taskSpace.queryData('paying')">Paying</a></li> -->
+
+					<li class="item all"><button type="button" class="p-3" onclick="taskSpace.queryData('all')">All</button></li>
+					<li class="item free"><button type="button" class="p-3" onclick="taskSpace.queryData('free')">Free</button></li>
+					<li class="item paying"><button type="button" class="p-3" href="#" onclick="taskSpace.queryData('paying')">Paying</button></li>
 				</ul>
 			</li>
 			<!-- <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li> -->
@@ -57,83 +60,9 @@
 		<div class="loader-container"><span class="dual-ring-loader"></span></div>
 		<div class="errors"></div>
 	</div>
-	<div class="board container">
-		<table border="0" cellpadding="0" cellspacing="0" width="100%" class="board-table">
-			<tr class="header-row">
-				<td align="center" valign="top" class="pretend-row">
-					<div class="pretend-row-wrapper">
-						<table align="left" border="0" cellpadding="10" cellspacing="0" width="25%" class="responsive-column">
-							<tr class="header-lg">
-								<th>
-									ID
-								</th>
-							</tr>
-						</table>
-						<table align="left" border="0" cellpadding="10" cellspacing="0" width="25%" class="responsive-column">
-							<tr class="header-lg">
-								<th>
-									Company Name
-								</th>
-							</tr>
-						</table>
-						<table align="left" border="0" cellpadding="10" cellspacing="0" width="50%" class="description">
-							<tr class="header-lg">
-								<th>
-									Owner email
-								</th>
-							</tr>
-						</table>
-					</div>
-				</td>
-			</tr>
-
-			<tr class="row">
-				<td align="center" valign="top" class="pretend-row">
-					<div class="pretend-row-wrapper">
-						<table align="left" border="0" cellpadding="10" cellspacing="0" width="25%" class="responsive-column">
-							<tr class="header">
-								<th>
-									ID
-								</th>
-							</tr>
-							<tr>
-								<td>
-									text
-								</td>
-							</tr>
-						</table>
-						<table align="left" border="0" cellpadding="10" cellspacing="0" width="25%" class="responsive-column">
-							<tr class="header">
-								<th>
-									Company Name
-								</th>
-							</tr>
-							<tr>
-								<td class="company-name">
-									text
-								</td>
-							</tr>
-						</table>
-						<table align="left" border="0" cellpadding="10" cellspacing="0" width="50%" class="description">
-							<tr class="header">
-								<th>
-									Owner email
-								</th>
-							</tr>
-							<tr>
-								<td>
-									text
-								</td>
-							</tr>
-						</table>
-					</div>
-				</td>
-			</tr>
-		</table>
-
-	</div>
+	<div class="board container"></div>
 	<div class="pagination"></div>
-	<script src="scripts/app.js?t=1666617994803"></script>
+	<script src="scripts/app.js?t=1666622220900"></script>
 </body>
 
 </html>

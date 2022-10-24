@@ -100,7 +100,19 @@
 					>a {
 						color: $menu-text-secondary;
 						display: inline-block;
+					}
 
+					>button {
+						display: inline-block;
+						width: 100%;
+						border: none;
+						background-color: transparent;
+						font-size: 1rem;
+						color: $menu-text-secondary;
+
+						&:disabled {
+							cursor: not-allowed;
+						}
 					}
 
 					&:hover {
@@ -108,12 +120,19 @@
 							color: $menu-text-active;
 						}
 
+						button {
+							color: $menu-text-active;
+						}
 					}
 
 					&.active {
 						background-color: $menu-bg-secondary;
 
 						a {
+							color: $menu-text-active;
+						}
+
+						button {
 							color: $menu-text-active;
 						}
 					}

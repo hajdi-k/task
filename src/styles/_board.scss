@@ -54,7 +54,7 @@
 		text-align: center;
 		max-height: 0;
 		overflow: hidden;
-		transition: max-height 0.25s ease-in;
+		// transition: max-height 0.25s ease-in;
 
 		&.visible{
 			max-height: 62px;

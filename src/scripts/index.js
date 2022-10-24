@@ -1,30 +1,44 @@
 const groups = ['all', 'free', 'paying'];
-let activeGroup = '', timeoutId;
+let activeGroup = 'all', timeoutId;
 const searchStates = {
 	'ok': 0,
 	'run': 1,
 	'err': 2
 };
 
-const filterItems = document.getElementsByClassName('filter-items')[0];
+const filterItems = document.getElementsByClassName('filter-items')[0],
+	filterItemsList = Array.from(filterItems.children),
+	filterItemsButtons = filterItemsList.map(child => child.children[0]);
 const [boardLoader, boardError] = document.getElementsByClassName('board-status')[0].children;
 const board = document.getElementsByClassName('board')[0];
 const queryElem = document.getElementById('querystring');
 
 const searchStateChange = (newProcess) => {
+	board.innerHTML= '';
+
 	if (newProcess.state == searchStates.run) {
 		boardLoader.classList.add('visible');
 		boardError.classList.remove('visible');
 	} else {
 		boardLoader.classList.remove('visible');
+		// filterItemsButtons.forEach(b => b.disabled = false);
+		// queryElem.disabled = false;
 
 		if (newProcess.state == searchStates.ok) {
 			boardError.classList.remove('visible');
-			console.log(newProcess.data);
+			// console.log(newProcess.data);
+			board.innerHTML = generateTableHTML(newProcess.data.value);
 		} else {
-			// searchStates.err or unpredicted state! Don't remove old data and state, just re-enable actions and show error
+			// searchStates.err or unpredicted state! Don't remove old data and state, just return old group actions and show error
 			boardError.innerText = 'An error occured while loading data. Please retry.';
 			boardError.classList.add('visible');
+
+			filterItemsList.forEach((child, index) => {
+				child.classList.remove('active');
+				if (child.classList.contains(activeGroup)) {
+					child.classList.add('active');
+				}
+			})
 
 			if (timeoutId) {
 				clearTimeout(timeoutId);
@@ -38,19 +52,26 @@ const searchStateChange = (newProcess) => {
 	}
 };
 
-let queryData = (group = 'all', search = '') => {
+let queryData = (group, search) => {
+	if (search == undefined) {
+		search = queryElem.value;
+	}
+
 	if (!groups.includes(group)) {
 		group = 'all';
 	}
 
-	// console.log(queryElem.value);
+	console.log(JSON.stringify(group), JSON.stringify(search));
 
-	Array.from(filterItems.children).forEach((child) => {
+	filterItemsList.forEach((child, index) => {
 		child.classList.remove('active');
 		if (child.classList.contains(group)) {
 			child.classList.add('active');
 		}
-	});
+
+		// filterItemsButtons[index].disabled = true;
+	})
+	// queryElem.disabled = true;
 
 	searchStateChange({state: searchStates.run});
 
@@ -69,8 +90,9 @@ let queryData = (group = 'all', search = '') => {
 		}
 	})
 	.then((result) => {
-		activeGroup = group;
+
 		setTimeout((result) => {
+			activeGroup = group;
 			searchStateChange({state: searchStates.ok, data: result});
 		}, 500, result);
 	})
@@ -94,6 +116,8 @@ let queryData = (group = 'all', search = '') => {
 	.catch(err => console.error(err)); */
 };
 
-queryData();
+queryData('all', '');
 exposeTask.queryData = helpers.throttle(queryData, 500);
-queryElem.addEventListener('input', helpers.debounce(queryData, 500));
+queryElem.addEventListener('input', helpers.debounce((event) => {
+	queryData(activeGroup, event.target.value);
+}, 500));

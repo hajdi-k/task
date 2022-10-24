@@ -78,6 +78,14 @@
   margin-bottom: 1rem !important;
 }
 
+@keyframes dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .task-body {
   box-sizing: border-box;
   padding: 0;
@@ -272,6 +280,39 @@
     width: 100%;
     max-width: 100%;
   }
+}
+
+.board-status .loader-container {
+  text-align: center;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-in;
+}
+.board-status .loader-container.visible {
+  max-height: 62px;
+}
+.board-status .loader-container .dual-ring-loader {
+  display: inline-block;
+}
+.board-status .loader-container .dual-ring-loader:after {
+  content: " ";
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 3px solid #363636;
+  border-color: #363636 transparent #363636 transparent;
+  animation: dual-ring 1.2s linear infinite;
+}
+.board-status .errors {
+  color: #de463b;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease-in;
+}
+.board-status .errors.visible {
+  max-height: 62px;
 }
 
 .board .board-table td,

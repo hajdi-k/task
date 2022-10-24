@@ -48,3 +48,43 @@
 		}
 	}
 }
+
+.board-status {
+	.loader-container {
+		text-align: center;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.25s ease-in;
+
+		&.visible{
+			max-height: 62px;
+		}
+
+		.dual-ring-loader {
+			display: inline-block;
+
+			&:after {
+				content: ' ';
+				display: block;
+				width: 40px;
+				height: 40px;
+				margin: 8px;
+				border-radius: 50%;
+				border: 3px solid $body-text-primary;
+				border-color: $body-text-primary transparent $body-text-primary transparent;
+				animation: dual-ring 1.2s linear infinite;
+			}
+		}
+	}
+
+	.errors {
+		color: $text-error;
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.25s ease-in;
+
+		&.visible{
+			max-height: 62px;
+		}
+	}
+}

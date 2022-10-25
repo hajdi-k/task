@@ -85,8 +85,8 @@ let queryData = (group, search) => {
 		}
 	};
 
-	// let prefix = 'test/test.json';
-	let prefix = 'https://the-one-api.dev/v2/character';
+	let prefix = 'test/test.json';
+	// let prefix = 'https://the-one-api.dev/v2/character';
 	fetch(prefix + '?race=' + fetchMap[group] + (search ? `&name=/${search}/i` : '') + '&limit=10', options)
 	.then((response) => {
 		if (!response.ok) {
@@ -101,6 +101,13 @@ let queryData = (group, search) => {
 	})
 	.then((result) => {
 		setTimeout((result) => {
+			console.log(result);
+			const testData = 100;
+			const startPage = 2;
+			const step = 3;
+			const pagination = new helpers.Pagination(testData, step, startPage);
+			pagination.Build(document.querySelector('.pagination'));
+
 			activeGroup = group;
 			searchStateChange({state: searchStates.ok, data: result});
 		}, 500, result);

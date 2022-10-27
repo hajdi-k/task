@@ -112,7 +112,16 @@ let queryData = (group, search) => {
 };
 
 queryData('all', '');
-exposeTask.queryData = helpers.throttle(queryData, 500);
 queryElem.addEventListener('input', helpers.debounce((event) => {
 	queryData(activeGroup, event.target.value);
 }, 500));
+
+document.getElementsByClassName('search-form')[0].addEventListener('submit', () => {
+	return false;
+});
+
+filterItemsButtons.forEach((button, i) => {
+	button.addEventListener('click', () => {
+		queryData(groups[i]);
+	});
+});

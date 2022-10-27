@@ -90,7 +90,7 @@ const buildStyles = (done) => {
 const buildScripts = (done) => {
 	src(paths.scripts)
 		.pipe(concat('app.js'))
-		.pipe(wrap('var taskSpace = (function() {\n\'use strict\';\n\nlet exposeTask = {}, helpers;\n\n<%= contents %>\n\nreturn exposeTask;\n\n})();'))
+		.pipe(wrap('(function() {\n\'use strict\';\n\nlet helpers;\n\n<%= contents %>\n\n})();'))
 		.pipe(dest('./dist/scripts'))
 		/* .pipe(uglify({
 			compress: {
@@ -144,14 +144,7 @@ const serve = () => {
 		reloadDebounce: 500
 	});
 
-	// gulp.watch(paths.images, ['images']);
-
 	watch(paths.styles, buildStyles);
-	/* watch(paths.styles, function(cb) {
-		buildStyles();
-		cb();
-	}); */
-
 	watch(paths.scripts, buildScripts);
 	watch(paths.html, buildTemplates);
 };

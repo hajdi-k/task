@@ -1,7 +1,7 @@
-var taskSpace = (function() {
+(function() {
 'use strict';
 
-let exposeTask = {}, helpers;
+let helpers;
 
 function throttle(func, wait, options) {
 	var context, args, result;
@@ -352,10 +352,19 @@ let queryData = (group, search) => {
 };
 
 queryData('all', '');
-exposeTask.queryData = helpers.throttle(queryData, 500);
 queryElem.addEventListener('input', helpers.debounce((event) => {
 	queryData(activeGroup, event.target.value);
 }, 500));
+
+document.getElementsByClassName('search-form')[0].addEventListener('submit', () => {
+	return false;
+});
+
+filterItemsButtons.forEach((button, i) => {
+	button.addEventListener('click', () => {
+		queryData(groups[i]);
+	});
+});
 let menuOpen = true;
 const menuToggleElem = document.getElementsByClassName('menu-toggle')[0];
 const filterMenuElem = document.getElementsByClassName('filter-menu')[0];
@@ -384,8 +393,6 @@ let menuToggle = (open) => {
 	}
 };
 
-exposeTask.menuToggle = menuToggle;
-
 function winResize() {
 	const w = window.innerWidth;
 	if (w > 768) {
@@ -398,6 +405,8 @@ function winResize() {
 winResize();
 window.addEventListener('resize', helpers.throttle(winResize, 250));
 
-return exposeTask;
+menuToggleElem.addEventListener('click', () => {
+	menuToggle();
+});
 
 })();

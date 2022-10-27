@@ -26,8 +26,6 @@ let menuToggle = (open) => {
 	}
 };
 
-exposeTask.menuToggle = menuToggle;
-
 function winResize() {
 	const w = window.innerWidth;
 	if (w > 768) {
@@ -39,3 +37,7 @@ function winResize() {
 
 winResize();
 window.addEventListener('resize', helpers.throttle(winResize, 250));
+
+menuToggleElem.addEventListener('click', () => {
+	menuToggle();
+});

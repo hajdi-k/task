@@ -19,7 +19,7 @@ const board = document.getElementsByClassName('board')[0];
 const queryElem = document.getElementById('querystring');
 
 const searchStateChange = (newProcess) => {
-	board.innerHTML = '';
+	board.innerHTML = (helpers.cleanHTML('')); // redundant but snyk might complain
 
 	if (newProcess.state == searchStates.run) {
 		boardLoader.classList.add('visible');
@@ -31,8 +31,7 @@ const searchStateChange = (newProcess) => {
 
 		if (newProcess.state == searchStates.ok) {
 			boardError.classList.remove('visible');
-			// console.log(newProcess.data);
-			board.innerHTML = helpers.generateTableHTML(newProcess.data.docs);
+			board.innerHTML = helpers.cleanHTML(helpers.generateTableHTML(newProcess.data.docs));
 		} else {
 			// searchStates.err or unpredicted state! Don't remove old data and state, just return old group actions and show error
 			boardError.innerText = 'An error occured while loading data. Please retry.';
